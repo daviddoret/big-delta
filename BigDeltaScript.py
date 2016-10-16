@@ -62,5 +62,5 @@ def show_demo_01(max_n):
         print(line)
         previous_f = f
 
-show_demo_01(32)
+show_demo_01(1024)
 
