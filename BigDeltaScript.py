@@ -38,7 +38,7 @@ def show_demo_01(max_n):
     for n in range(2,max_n):
         numbers_with_base.append(NumberWithBase(n))
 
-    line = "n\tΔ"
+    line = "n\tΔ\tdf\tf"
     for nb in numbers_with_base:
         line = "{0}\tδ{1}".format(line, nb.base)
     print(line)
@@ -55,10 +55,10 @@ def show_demo_01(max_n):
             else:
                 line = "{0}\t".format(line)
             nb.increment()
-        diff = f - previous_f
-        if diff > big_delta:
-            big_delta = diff
-        line = "{0}\t{1}{2}".format(n,big_delta,line)
+        df = f - previous_f
+        if df > big_delta:
+            big_delta = df
+        line = "{0}\t{1}\t{2}\t{3}{4}".format(n, big_delta, df, f, line)
         print(line)
         previous_f = f
 
