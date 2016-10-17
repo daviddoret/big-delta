@@ -31,7 +31,7 @@ class NumberWithBase:
             digit_sum = digit_sum + i
         return digit_sum
 
-def show_demo_01(max_n):
+def show_demo_01(max_n, max_small_delta_display):
     numbers_with_base = []
     big_delta = 0
 
@@ -47,13 +47,23 @@ def show_demo_01(max_n):
     for n in range(0,max_n):
         line = ""
         f = 0
+
+        small_delta_display = 0
+
         for nb in numbers_with_base:
+            small_delta_display += 1
             small_delta = nb.get_small_delta()
             if nb.base <= n + 1:
                 f += small_delta
-                line = "{0}\t{1}".format(line, small_delta)
+                if small_delta_display < max_small_delta_display:
+                    line = "{0}\t{1}".format(line, small_delta)
+                elif small_delta_display == max_small_delta_display:
+                    line = "{0}\t...".format(line)
             else:
-                line = "{0}\t".format(line)
+                if small_delta_display < max_small_delta_display:
+                    line = "{0}\t".format(line)
+                elif small_delta_display == max_small_delta_display:
+                    line = "{0}\t...".format(line)
             nb.increment()
         df = f - previous_f
         if df > big_delta:
@@ -62,5 +72,5 @@ def show_demo_01(max_n):
         print(line)
         previous_f = f
 
-show_demo_01(1024)
+show_demo_01(16384,8)
 
