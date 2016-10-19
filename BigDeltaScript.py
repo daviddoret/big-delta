@@ -72,5 +72,5 @@ def show_demo_01(max_n, max_small_delta_display):
         print(line)
         previous_f = f
 
-show_demo_01(16384,8)
+show_demo_01(131072,8)
 
